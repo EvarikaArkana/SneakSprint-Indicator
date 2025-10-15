@@ -14,19 +14,19 @@
     "issues": "https://github.com/EvarikaArkana/sneak-indicator/issues"
   },
   "license": "MIT",
-  "icon": "assets/sneaker/icon.png",
+  "icon": "assets/spreak/icon.png",
   "environment": "client",
   "entrypoints": {
     "main": [
-      "eva.sneaker.SneakIndicatorMain"
+      "eva.spreak.SpreakMain"
     ],
     "client": [
-      "eva.sneaker.SneakIndicatorClient"
+      "eva.spreak.SpreakClient"
     ]
   },
   "mixins": [
     {
-      "config": "sneakindicator.mixins.json",
+      "config": "spreak.mixins.json",
       "environment": "client"
     }
   ],

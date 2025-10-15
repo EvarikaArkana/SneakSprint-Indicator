@@ -1,8 +1,8 @@
-package eva.sneaker;
+package eva.spreak;
 
 import net.fabricmc.api.ModInitializer;
 
-public class SneakIndicatorMain implements ModInitializer {
+public class SpreakMain implements ModInitializer {
     public static final String MOD_ID = "replacer";
 
     @Override
