@@ -6,11 +6,12 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.client.renderer.RenderPipelines;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.HumanoidArm;
 import net.minecraft.world.entity.player.Player;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -21,15 +22,15 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Gui.class)
 public abstract class GuiMixin {
+
+    @Final
+    @Shadow
+    private Minecraft minecraft;
+
     @Shadow
     private Player getCameraPlayer() {
         return null;
     }
-
-    @Unique
-    private static final ResourceLocation sneak = Gui.getMobEffectSprite(MobEffects.SLOWNESS);
-    @Unique
-    private static final ResourceLocation sprint = Gui.getMobEffectSprite(MobEffects.SPEED);
 
     @Inject(method = "renderItemHotbar", at = @At(value = "HEAD"))
     private void afterRenderHotbar(GuiGraphics guiGraphics, DeltaTracker deltaTracker, CallbackInfo ci) {
@@ -52,8 +53,14 @@ public abstract class GuiMixin {
             o = i - 91 - 22 - a;
             o2 = o - 24;
         }
-        if (player.isSprinting()) guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, sprint, o, n, 18, 18);
-        if (player.isCrouching()) guiGraphics.blitSprite(RenderPipelines.GUI_TEXTURED, sneak, o2, n, 18, 18);
+        if (player.isSprinting()) {
+            TextureAtlasSprite sprint = this.minecraft.getMobEffectTextures().get(MobEffects.MOVEMENT_SPEED);
+            guiGraphics.blitSprite(RenderType::guiTextured, sprint, o, n, 18, 18);
+        }
+        if (player.isCrouching()) {
+            TextureAtlasSprite sneak = this.minecraft.getMobEffectTextures().get(MobEffects.MOVEMENT_SLOWDOWN);
+            guiGraphics.blitSprite(RenderType::guiTextured, sneak, o2, n, 18, 18);
+        }
     }
 
     @Unique
