@@ -38,5 +38,13 @@
   "suggests": {
   },
   "breaks": {
+  },
+  "custom": {
+    "mc-publish": {
+      "modrinth": "y32w0hBK",
+      "curseforge": "1366319",
+      "dependencies" : [
+      ]
+    }
   }
 }
