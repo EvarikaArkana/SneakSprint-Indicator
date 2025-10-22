@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "id": "${mod_id}",
   "version": "${mod_version}",
-  "name": "Sneak Indicator",
-  "description": "Simple UI element showing whether you're currently sneaking.",
+  "name": "Sneak/Sprint Indicator",
+  "description": "Two simple UI elements that indicate when you're sprinting or sneaking (or both!)",
   "authors": [
     "Evarika (adaptor)",
     "Roundaround (original)"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/sneak-indicator",
-    "sources": "https://github.com/EvarikaArkana/sneak-indicator",
-    "issues": "https://github.com/EvarikaArkana/sneak-indicator/issues"
+    "homepage": "https://modrinth.com/mod/sprintsneak-indicator",
+    "sources": "https://github.com/EvarikaArkana/SneakSprint-Indicator",
+    "issues": "https://github.com/EvarikaArkana/SneakSprint-Indicator/issues"
   },
   "license": "MIT",
   "icon": "assets/spreak/icon.png",

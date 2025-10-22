@@ -8,7 +8,7 @@ Simple UI element showing whether you're currently sneaking or sprinting (or bot
 
 ## Download
 
-https://modrinth.com/mod/spreak-indicator
+https://modrinth.com/mod/sprintsneak-indicator
 
 ## License
 
